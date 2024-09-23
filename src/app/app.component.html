@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Assignment 1</title>
-</head>
-
-<body>
-
-<h1>{{title}}</h1>
-<p>{{name}}</p>
-<p>{{collegeID}}</p>
-</body>
-
-</html>
+<div class = "container">
+  <h2>Laptops</h2>
+  <div *ngFor="let pad of ArrayList" >
+    <h3>{{pad.brand}}</h3>
+    <p>Serial Number : {{pad.serialNumber}}</p>
+    <p>Model : {{pad.model}}</p>
+    <p>Storage : {{pad.storage}}</p>
+    <p>Available : {{pad.isAvailable? 'YES' : 'NO'}}</p>
+  </div>
+</div>
