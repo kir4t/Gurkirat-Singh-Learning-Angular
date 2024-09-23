@@ -10,8 +10,4 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Gurkirat-Singh-Learning-Angular';
-  name :string = "Gurkirat";
-  collegeID : number = 830149;
-
 }
