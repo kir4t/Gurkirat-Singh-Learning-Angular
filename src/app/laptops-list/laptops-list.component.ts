@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
-// @ts-ignore
-import {Laptops} from './Shared/Models/Laptops';
+import {Laptops} from "../Shared/Models/Laptops";
 import {JsonPipe, NgFor, NgForOf} from "@angular/common";
 import {LaptopsListItemComponent} from "../laptops-list-item/laptops-list-item.component";
 
@@ -15,7 +13,7 @@ import {LaptopsListItemComponent} from "../laptops-list-item/laptops-list-item.c
   styleUrl: './laptops-list.component.css'
 })
 export class LaptopsListComponent {
-  title = 'New Laptops'
+  title = 'New Laptops.ts'
 
   Laptop1 : Laptops = {serialNumber: "1111A", brand: "Apple", model: "mac pro", storage:  256, isAvailable: true};
   Laptop2 : Laptops = {serialNumber: "2222B", brand: "Hp", model: "Pavilion", storage:  512, isAvailable: true};
