@@ -1,15 +1,18 @@
 import {Component, Input} from '@angular/core';
 import {Laptops} from "../Shared/Models/Laptops";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-laptops-list-item',
   standalone: true,
-  imports: [],
+  imports: [
+    NgForOf
+  ],
   templateUrl: './laptops-list-item.component.html',
-  styleUrl: './laptops-list-item.component.css'
+  styleUrl: './laptops-list-item.component.scss'
 })
 export class LaptopsListItemComponent {
 
-  @Input() isAvailable?: Laptops;
+  @Input() laptop!: Laptops;
 
 }

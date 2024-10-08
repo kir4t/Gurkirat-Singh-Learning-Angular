@@ -13,7 +13,7 @@ import {LaptopsService} from "../services/laptops.service";
   standalone: true,
   imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListItemComponent],
   templateUrl: './laptops-list.component.html',
-  styleUrl: './laptops-list.component.css'
+  styleUrl: './laptops-list.component.scss'
 })
 export class LaptopsListComponent implements OnInit{
   title = 'New Laptops.ts'
