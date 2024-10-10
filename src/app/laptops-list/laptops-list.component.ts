@@ -17,14 +17,15 @@ import {LaptopsService} from "../services/laptops.service";
 })
 export class LaptopsListComponent implements OnInit{
   title = 'New Laptops.ts'
+  Details:string[]=['serialNumber','brand','model','storage','isAvailable?']
+  laptopsArray: Laptops[] =[];
 
-  laptops: Laptops[]= [];
 
   constructor(private laptopsService: LaptopsService) {}
 
   ngOnInit():void {
     this.laptopsService.getLaptops().subscribe({
-      next: (data: Laptops[]) => this.laptops = data,
+      next: (data: Laptops[]) => this.laptopsArray = data,
       error: err=> console.error("error fetching laptops",err)
     });
   }

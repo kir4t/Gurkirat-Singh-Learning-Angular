@@ -3,5 +3,6 @@ export interface Laptops {
   brand: string,
   model: string,
   storage: number,
-  isAvailable?: boolean
+  isAvailable?: boolean,
+  image: string
 }

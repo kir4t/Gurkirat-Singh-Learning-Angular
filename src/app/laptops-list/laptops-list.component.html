@@ -1,10 +1,11 @@
 <div class = "container">
   <h2>Laptops</h2>
-  <div *ngFor="let pad of laptops" >
+  <div *ngFor="let pad of laptopsArray" >
     <h3>{{pad.brand}}</h3>
     <p>Serial Number : {{pad.serialNumber}}</p>
     <p>Model : {{pad.model}}</p>
     <p>Storage : {{pad.storage}}</p>
     <p>Available : {{pad.isAvailable? 'YES' : 'NO'}}</p>
+    <p><img [src]="pad.image" alt="{{ pad.model}}" style="max-width: 200px; height: auto;"/></p>
   </div>
 </div>
