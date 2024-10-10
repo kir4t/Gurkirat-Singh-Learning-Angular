@@ -1,11 +1,24 @@
 <div class = "container">
   <h2>Laptops</h2>
-  <div *ngFor="let pad of laptopsArray" >
+  <table>
+    <thead><tr>
+      <th>Brand</th>
+      <th>SerialNumber</th>
+      <th>Model</th>
+      <th>Storage</th>
+      <th>isAvailable</th>
+      <th>image</th>
+    </tr></thead>
+  <tbody>
+  <tr  *ngFor="let pad of laptopsArray" >
     <h3>{{pad.brand}}</h3>
-    <p>Serial Number : {{pad.serialNumber}}</p>
-    <p>Model : {{pad.model}}</p>
-    <p>Storage : {{pad.storage}}</p>
-    <p>Available : {{pad.isAvailable? 'YES' : 'NO'}}</p>
-    <p><img [src]="pad.image" alt="{{ pad.model}}" style="max-width: 200px; height: auto;"/></p>
-  </div>
+    <td>Serial Number : {{pad.serialNumber}}</td>
+    <td>Model : {{pad.model}}</td>
+    <td>Storage : {{pad.storage}}</td>
+    <td>Available : {{pad.isAvailable? 'YES' : 'NO'}}</td>
+    <td><img [src]="pad.image" alt="{{ pad.model}}" style="max-width: 200px; height: auto;"/></td>
+  </tr>
+  </tbody>
+  </table>
 </div>
+
