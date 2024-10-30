@@ -8,6 +8,7 @@
       <th>Storage</th>
       <th>isAvailable</th>
       <th>image</th>
+      <th>Actions</th>
     </tr></thead>
   <tbody>
   <tr  *ngFor="let pad of laptopsArray" >
@@ -17,6 +18,12 @@
     <td>Storage : {{pad.storage}}</td>
     <td>Available : {{pad.isAvailable? 'YES' : 'NO'}}</td>
     <td><img [src]="pad.image" alt="{{ pad.model}}" style="max-width: 200px; height: auto;"/></td>
+    <td>
+      <!-- Edit Button -->
+      <button (click)="editLaptop(pad.serialNumber)">Edit</button>
+      <!-- Delete Button -->
+      <button (click)="deleteLaptop(pad.serialNumber)">Delete</button>
+    </td>
   </tr>
   </tbody>
   </table>
