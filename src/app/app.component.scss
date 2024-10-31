@@ -1,0 +1,39 @@
+/* CSS for navbar */
+.nav-bar {
+  background-color: #333; /* Dark background color */
+  padding: 10px 20px;
+}
+
+.nav-bar nav {
+  display: flex;
+  gap: 15px; /* Space between links */
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-bar a:hover {
+  background-color: #555; /* Slightly lighter on hover */
+}
+
+.nav-bar a.active {
+  background-color: #1e90ff; /* Highlight active link */
+  color: #fff;
+}
+
+/* CSS for app container */
+.app-container {
+  margin: 20px auto;
+  max-width: 1200px; /* Adjust width as needed */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for content area */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+

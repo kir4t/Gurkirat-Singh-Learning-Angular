@@ -1,5 +1,12 @@
-<app-navbar></app-navbar>
-<app-laptops-list-item></app-laptops-list-item>
-<app-laptops-list></app-laptops-list>
 
+<div class="nav-bar">
+  <nav>
+    <a routerLink="/Laptops" routerLinkActive="active">Laptop List</a>
+    <a routerLink="/modify-student" routerLinkActive="active">Modify Laptops</a>
+  </nav>
+</div>
 
+<div class="app-container">
+
+  <router-outlet></router-outlet>
+</div>

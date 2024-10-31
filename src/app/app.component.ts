@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {Laptops} from "./Shared/Models/Laptops";
 import {JsonPipe, NgFor, NgForOf} from "@angular/common";
 import {LaptopsListComponent} from "./laptops-list/laptops-list.component";
@@ -11,9 +11,9 @@ import {LaptopsService} from "./services/laptops.service";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListComponent, LaptopsListItemComponent, NavbarComponent],
+  imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListComponent, LaptopsListItemComponent, NavbarComponent, RouterLink, RouterLinkActive],
   templateUrl:'./app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
   title = 'New Laptops'

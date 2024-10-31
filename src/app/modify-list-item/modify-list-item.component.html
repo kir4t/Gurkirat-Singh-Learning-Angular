@@ -1,1 +1,23 @@
-<p>modify-list-item works!</p>
+<form [formGroup]="laptopForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="serialNumber">Serial Number</label>
+    <input type="text" id="serialNumber" formControlName="serialNumber" />
+  </div>
+
+  <div class="form-group">
+    <label for="brand">Brand</label>
+    <input type="text" id="brand" formControlName="brand" />
+  </div>
+
+  <div class="form-group">
+    <label for="storage">Storage</label>
+    <input type="text" id="storage" formControlName="storage" />
+  </div>
+
+  <div class="form-group">
+    <label for="isAvailable">Available</label>
+    <input type="checkbox" id="isAvailable" formControlName="isAvailable" />
+  </div>
+
+  <button type="submit">Add/Update Item</button>
+</form>

@@ -1,12 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {Laptops} from "../Shared/Models/Laptops";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-laptops-list-item',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './laptops-list-item.component.html',
   styleUrl: './laptops-list-item.component.scss'
