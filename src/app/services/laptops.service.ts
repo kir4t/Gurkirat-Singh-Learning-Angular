@@ -3,7 +3,7 @@ import {laptopsArray} from "../Shared/mockLaptops";
 import {Laptops} from "../Shared/Models/Laptops";
 import {catchError, Observable, of, throwError} from "rxjs";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import * as url from "node:url";
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class LaptopsService {
 
   }
   updateLaptop(updatedLaptops:Laptops): Observable<{}> {
-    const index = laptopsArray.findIndex(laptop => laptop.serialNumber === updatedLaptops.serialNumber);
+    const url = laptopsArray.findIndex(laptop => laptop.serialNumber === updatedLaptops.serialNumber);
     return this.http.post<Laptops>(this.apiUrl, updatedLaptops).pipe(catchError(this.handleError));
     }
 

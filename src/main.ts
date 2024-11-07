@@ -19,8 +19,8 @@ const routes: Routes =[
 ]
 bootstrapApplication(AppComponent, {
   providers: [
-    provideHttpClient(), // Ensure that HTTP interceptors are properly configured
+    provideHttpClient(),
     provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)) // Import providers dynamically
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 }))
   ],
 }).catch((err) => console.error(err));
