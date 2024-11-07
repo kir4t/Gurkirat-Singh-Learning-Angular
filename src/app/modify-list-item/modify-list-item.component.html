@@ -1,4 +1,4 @@
-<form [formGroup]="laptopForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="laptopForm" (ngSubmit)="onAdd()">
   <div class="form-group">
     <label for="serialNumber">Serial Number</label>
     <input type="text" id="serialNumber" formControlName="serialNumber" />
@@ -19,5 +19,9 @@
     <input type="checkbox" id="isAvailable" formControlName="isAvailable" />
   </div>
 
-  <button type="submit">Add/Update Item</button>
+  <button type="submit">Add</button>
+  <button type="button" (click)="onUpdate()">Update</button>
+  <button type="button" (click)="navigateToLaptopList()">Back to List</button>
+  <button type="submit">Submit</button>
+
 </form>

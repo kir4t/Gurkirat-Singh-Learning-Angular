@@ -27,12 +27,17 @@ export class LaptopsService {
     return of(this.laptops);
   }
 
-  deleteLaptop(serialNumber:string): Observable<Laptops[]>{
+  deleteLaptop(serialNumber:number): Observable<Laptops[]>{
     this.laptops = laptopsArray.filter(laptop=>laptop.serialNumber !== serialNumber);
     return of (this.laptops);
   }
-  getLaptopBySerialNumber(serialNumber:string): Observable<Laptops | undefined>{
+
+  getLaptopBySerialNumber(serialNumber: number): Observable<Laptops | undefined>{
     const laptop = laptopsArray.find(laptop=>laptop.serialNumber === serialNumber);
     return of(laptop);
+  }
+
+  generateNewId(): number{
+    return this.laptops.length> 0? Math.max(...this.laptops.map(l => l.serialNumber)) + 1: 1;
   }
 }

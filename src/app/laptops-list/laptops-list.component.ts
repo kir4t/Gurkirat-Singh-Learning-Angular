@@ -31,14 +31,15 @@ export class LaptopsListComponent implements OnInit {
     });
   }
 
-  editLaptop(serialNumber: string): void {
-    this.router.navigate(['/modify', serialNumber]);
+  editLaptop(): void {
+    this.router.navigate(['/modify-list-item']);
   }
 
-  deleteLaptop(serialNumber: string): void {
-    this.laptopsService.deleteLaptop(serialNumber).subscribe({
+  deleteLaptop(lap : Laptops): void {
+    const id = lap.serialNumber
+    this.laptopsService.deleteLaptop(id).subscribe({
       next: () => {
-        this.laptopsArray = this.laptopsArray.filter(laptop => laptop.serialNumber !== serialNumber);
+        this.laptopsArray = this.laptopsArray.filter(laptop => laptop.serialNumber !== id);
       },
       error: err => console.error("error deleting laptop", err)
     });

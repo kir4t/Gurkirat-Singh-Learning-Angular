@@ -1,5 +1,5 @@
 export interface Laptops {
-  serialNumber: string,
+  serialNumber: number,
   brand: string,
   model: string,
   storage: number,

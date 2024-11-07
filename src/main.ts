@@ -10,7 +10,7 @@ import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.c
 const routes: Routes =[
   {path: '', redirectTo:'/laptops', pathMatch: 'full' },
   {path:'laptops', component: LaptopsListComponent },
-  {path:'modify-student', component: ModifyListItemComponent},
+  {path:'modify-list-item', component: ModifyListItemComponent},
   {path: '**', component:PageNotFoundComponent}
 ]
 bootstrapApplication(AppComponent, {
