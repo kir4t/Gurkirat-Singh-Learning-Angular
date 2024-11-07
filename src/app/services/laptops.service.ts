@@ -1,43 +1,54 @@
 import { Injectable } from '@angular/core';
 import {laptopsArray} from "../Shared/mockLaptops";
 import {Laptops} from "../Shared/Models/Laptops";
-import {Observable, of} from "rxjs";
+import {catchError, Observable, of, throwError} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import * as url from "node:url";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LaptopsService {
+  private apiUrl = 'api/laptops';
   private laptops: Laptops[]= laptopsArray;
 
-  constructor() { }
+
+  constructor(private http: HttpClient) { }
   getLaptops():Observable<Laptops[]>{
-    return of (this.laptops);
+    return this.http.get<Laptops[]>(this.apiUrl).pipe(catchError(this.handleError));
 
   }
-  addLaptop(newLaptop: Laptops): Observable<Laptops[]>{
+  addLaptop(newLaptop: Laptops): Observable<{}>{
     laptopsArray.push(newLaptop);
-    return of(this.laptops);
+    return this.http.post<Laptops>(this.apiUrl, newLaptop).pipe(catchError(this.handleError));
 
   }
-  updateLaptop(updatedLaptops:Laptops): Observable<Laptops[]> {
+  updateLaptop(updatedLaptops:Laptops): Observable<{}> {
     const index = laptopsArray.findIndex(laptop => laptop.serialNumber === updatedLaptops.serialNumber);
-    if (index !== -1) {
-      laptopsArray[index] = updatedLaptops;
+    return this.http.post<Laptops>(this.apiUrl, updatedLaptops).pipe(catchError(this.handleError));
     }
-    return of(this.laptops);
-  }
 
-  deleteLaptop(serialNumber:number): Observable<Laptops[]>{
-    this.laptops = laptopsArray.filter(laptop=>laptop.serialNumber !== serialNumber);
-    return of (this.laptops);
+  deleteLaptop(serialNumber:number): Observable<{}>{
+    const url = `${this.apiUrl}/${serialNumber}`
+    return this.http.delete(url).pipe(catchError(this.handleError));
   }
 
   getLaptopBySerialNumber(serialNumber: number): Observable<Laptops | undefined>{
-    const laptop = laptopsArray.find(laptop=>laptop.serialNumber === serialNumber);
-    return of(laptop);
+    return this.http.get<Laptops>(`${this.apiUrl}/${serialNumber}`).pipe(catchError(this.handleError));
+
   }
 
   generateNewId(): number{
     return this.laptops.length> 0? Math.max(...this.laptops.map(l => l.serialNumber)) + 1: 1;
   }
+
+
+  private handleError(error: HttpErrorResponse) {
+    console.error('API error:', error);
+    return throwError(() => new Error('Server error, please try again.'));
+  }
+
 }
+
+
+
