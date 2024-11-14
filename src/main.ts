@@ -1,17 +1,15 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import {provideRouter, Routes} from "@angular/router";
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import {LaptopsListComponent} from "./app/laptops-list/laptops-list.component";
-import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
-import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.component";
 
 
 const routes: Routes =[
   {path: '', redirectTo:'/laptops', pathMatch: 'full' },
   {path:'laptops', component: LaptopsListComponent },
-  {path:'modify-list-item', component: ModifyListItemComponent},
-  {path: '**', component:PageNotFoundComponent}
+  {path:'modify-list-item',
+    loadComponent: ()=>import('./app/modify-list-item/modify-list-item.component').then(m=>m.ModifyListItemComponent)},
+  {path: '**', loadComponent:()=> import('./app/page-not-found/page-not-found.component').then(m=>m.PageNotFoundComponent)}
 ]
 bootstrapApplication(AppComponent, {
   providers: [provideRouter(routes)]
