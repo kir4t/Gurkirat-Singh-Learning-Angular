@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { RouterOutlet,Router } from '@angular/router';
 import {Laptops} from "../Shared/Models/Laptops";
-import {JsonPipe, NgFor, NgForOf} from "@angular/common";
+import {JsonPipe, NgFor, NgForOf,UpperCasePipe,DatePipe,CurrencyPipe} from "@angular/common";
 import {LaptopsListItemComponent} from "../laptops-list-item/laptops-list-item.component";
 import {laptopsArray} from "../Shared/mockLaptops";
 import {Observable} from "rxjs";
@@ -11,9 +11,10 @@ import {LaptopsService} from "../services/laptops.service";
 @Component({
   selector: 'app-laptops-list',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListItemComponent],
+  imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListItemComponent, UpperCasePipe, DatePipe, CurrencyPipe],
   templateUrl: './laptops-list.component.html',
-  styleUrl: './laptops-list.component.scss'
+  styleUrl: './laptops-list.component.scss',
+  providers:[UpperCasePipe,DatePipe,CurrencyPipe],
 })
 export class LaptopsListComponent implements OnInit {
   title = 'New Laptops.ts'

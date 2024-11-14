@@ -8,17 +8,21 @@
       <th>Storage</th>
       <th>isAvailable</th>
       <th>image</th>
+      <th>Purchase Date</th>
+      <th>Price</th>
       <th>Option</th>
     </tr></thead>
   <tbody>
   <tr  *ngFor="let pad of laptopsArray" >
-    <h3>{{pad.brand}}</h3>
+    <h3>{{pad.brand | uppercase}}</h3>
     <td>Serial Number : {{pad.serialNumber}}</td>
     <td>Model : {{pad.model}}</td>
     <td>Storage : {{pad.storage}}</td>
     <td>Available : {{pad.isAvailable? 'YES' : 'NO'}}</td>
     <td><img [src]="pad.image" alt="{{ pad.model}}" style="max-width: 200px; height: auto;"/></td>
 
+    <td>{{ pad.purchaseDate | date: 'shortDate' }}</td>
+    <td>{{ pad.price | currency: 'USD' }}</td>
 
     <td>
     <button type = "button" (click)="editLaptop()">Edit</button>

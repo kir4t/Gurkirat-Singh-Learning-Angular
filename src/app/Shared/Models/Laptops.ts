@@ -4,5 +4,7 @@ export interface Laptops {
   model: string,
   storage: number,
   isAvailable?: boolean,
-  image: string
+  image: string,
+  purchaseDate:string,
+  price:number
 }
