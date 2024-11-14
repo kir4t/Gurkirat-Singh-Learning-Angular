@@ -18,7 +18,7 @@
     <td>Serial Number : {{pad.serialNumber}}</td>
     <td>Model : {{pad.model}}</td>
     <td>Storage : {{pad.storage}}</td>
-    <td>Available : {{pad.isAvailable? 'YES' : 'NO'}}</td>
+    <td>Available : {{pad.isAvailable | AvailableStatusPipe}}</td>
     <td><img [src]="pad.image" alt="{{ pad.model}}" style="max-width: 200px; height: auto;"/></td>
 
     <td>{{ pad.purchaseDate | date: 'shortDate' }}</td>

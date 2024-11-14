@@ -6,12 +6,14 @@ import {LaptopsListItemComponent} from "../laptops-list-item/laptops-list-item.c
 import {laptopsArray} from "../Shared/mockLaptops";
 import {Observable} from "rxjs";
 import {LaptopsService} from "../services/laptops.service";
+import {AvailableStatusPipe} from "../pipe/available-status.pipe";
+
 
 // @ts-ignore
 @Component({
   selector: 'app-laptops-list',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListItemComponent, UpperCasePipe, DatePipe, CurrencyPipe],
+  imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListItemComponent, UpperCasePipe, DatePipe, CurrencyPipe, AvailableStatusPipe],
   templateUrl: './laptops-list.component.html',
   styleUrl: './laptops-list.component.scss',
   providers:[UpperCasePipe,DatePipe,CurrencyPipe],
