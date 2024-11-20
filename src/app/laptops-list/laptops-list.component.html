@@ -22,7 +22,7 @@
     <td><img [src]="pad.image" alt="{{ pad.model}}" style="max-width: 200px; height: auto;"/></td>
 
     <td>{{ pad.purchaseDate | date: 'shortDate' }}</td>
-    <td>{{ pad.price | currency: 'USD' }}</td>
+    <td>{{ pad.price | currency: 'INR' }}</td>
 
     <td>
     <button type = "button" (click)="editLaptop()">Edit</button>

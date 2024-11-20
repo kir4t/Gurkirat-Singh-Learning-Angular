@@ -6,7 +6,7 @@ import {LaptopsListComponent} from "./app/laptops-list/laptops-list.component";
 
 const routes: Routes =[
   {path: '', redirectTo:'/laptops', pathMatch: 'full' },
-  {path:'laptops', component: LaptopsListComponent },
+  {path:'laptops', component: LaptopsListComponent},
   {path:'modify-list-item',
     loadComponent: ()=>import('./app/modify-list-item/modify-list-item.component').then(m=>m.ModifyListItemComponent)},
   {path: '**', loadComponent:()=> import('./app/page-not-found/page-not-found.component').then(m=>m.PageNotFoundComponent)}
