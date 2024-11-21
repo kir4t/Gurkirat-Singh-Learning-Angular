@@ -7,13 +7,14 @@ import {laptopsArray} from "../Shared/mockLaptops";
 import {Observable} from "rxjs";
 import {LaptopsService} from "../services/laptops.service";
 import {AvailableStatusPipe} from "../pipe/available-status.pipe";
+import {HoverHighlightDirective} from "../hover-highlight.directive";
 
 
 // @ts-ignore
 @Component({
   selector: 'app-laptops-list',
   standalone: true,
-  imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListItemComponent, UpperCasePipe, DatePipe, CurrencyPipe, AvailableStatusPipe],
+  imports: [RouterOutlet, NgForOf, JsonPipe, LaptopsListItemComponent, UpperCasePipe, DatePipe, CurrencyPipe, AvailableStatusPipe, HoverHighlightDirective],
   templateUrl: './laptops-list.component.html',
   styleUrl: './laptops-list.component.scss',
   providers:[UpperCasePipe,DatePipe,CurrencyPipe],
