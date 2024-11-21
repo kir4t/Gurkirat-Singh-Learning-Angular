@@ -1,4 +1,4 @@
-  import {AfterViewInit, Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
+  import { Directive, ElementRef, HostListener, Input, } from '@angular/core';
 
   @Directive({
     selector: '[appHighlightOnFocus]',
@@ -7,14 +7,13 @@
   export class HighlightOnFocusDirective {
     @Input('appHighlightOnFocus') highlightColor: string = 'lightblue';
 
-    constructor(private el: ElementRef, private renderer: Renderer2) {
-    }
+    constructor(private el: ElementRef) {}
 
     @HostListener('focus') onFocus(): void {
-      this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', this.highlightColor);
+      this.el.nativeElement.style.backgroundColor = this.highlightColor;
     }
 
     @HostListener('blur') onBlur(): void {
-      this.renderer.removeStyle(this.el.nativeElement, 'backgroundColor');
+      this.el.nativeElement.style.backgroundColor = null;
     }
   }
