@@ -4,15 +4,17 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {LaptopsService} from "../services/laptops.service";
 import {laptopsArray} from "../Shared/mockLaptops";
 import {Laptops} from "../Shared/Models/Laptops";
+import {HighlightOnFocusDirective} from "../highlight-on-focus.directive";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighlightOnFocusDirective
   ],
   templateUrl: './modify-list-item.component.html',
-  styleUrl: './modify-list-item.component.css'
+  styleUrl: './modify-list-item.component.scss'
 })
 export class ModifyListItemComponent implements OnInit{
   laptopForm: FormGroup;

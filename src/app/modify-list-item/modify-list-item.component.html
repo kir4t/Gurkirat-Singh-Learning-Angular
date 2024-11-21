@@ -1,17 +1,17 @@
 <form [formGroup]="laptopForm" (ngSubmit)="onAdd()">
   <div class="form-group">
     <label for="serialNumber">Serial Number</label>
-    <input type="text" id="serialNumber" formControlName="serialNumber" />
+    <input type="text" id="serialNumber" formControlName="serialNumber" [appHighlightOnFocus]="'lightpink'" />
   </div>
 
   <div class="form-group">
     <label for="brand">Brand</label>
-    <input type="text" id="brand" formControlName="brand" />
+    <input type="text" id="brand" formControlName="brand" [appHighlightOnFocus]="'lightyellow'" />
   </div>
 
   <div class="form-group">
     <label for="storage">Storage</label>
-    <input type="text" id="storage" formControlName="storage" />
+    <input type="text" id="storage" formControlName="storage" appHighlightOnFocus />
   </div>
 
   <div class="form-group">
