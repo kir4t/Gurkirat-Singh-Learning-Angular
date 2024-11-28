@@ -2,6 +2,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import {provideRouter, Routes} from "@angular/router";
 import { AppComponent } from './app/app.component';
 import {LaptopsListComponent} from "./app/laptops-list/laptops-list.component";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 const routes: Routes =[
@@ -12,5 +13,5 @@ const routes: Routes =[
   {path: '**', loadComponent:()=> import('./app/page-not-found/page-not-found.component').then(m=>m.PageNotFoundComponent)}
 ]
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)]
+  providers: [provideRouter(routes), provideAnimationsAsync()]
 }).then(()=> console.log('Bootstrap successful'));
